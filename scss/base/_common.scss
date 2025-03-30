@@ -1,0 +1,158 @@
+section {
+	position: relative;
+	overflow: hidden;
+}
+
+.rs-sticky-block {
+	padding: 100px 0px;
+	border-radius: 50px;
+	margin: -50px 0px;
+	background-color: #fff;
+	position: relative;
+	z-index: 10;
+	overflow: hidden;
+
+	@include responsive-auto(border-radius, (50, 20), (1439.98, 1169.98, 991.98));
+	@include responsive-auto(margin-top, (-50, -20), (1439.98, 1169.98, 991.98));
+	@include responsive-auto(margin-bottom, (-50, -20), (1439.98, 1169.98, 991.98));
+	@include responsive-auto(padding-top, (100, 30), (1439.98, 1169.98, 991.98));
+	@include responsive-auto(padding-bottom, (100, 30), (1439.98, 1169.98, 991.98));
+}
+
+.primary-color {
+	color: var(--primary-color);
+}
+
+// Text ========================================================================================================================================================
+h1 {
+	font-weight: 600;
+	font-size: 90px;
+	// line-height: 90px;
+	line-height: 100%;
+}
+
+h2 {
+	font-weight: 700;
+	font-size: 70px;
+	// line-height: 64px;
+	line-height: 91%;
+
+	@media (max-width: 1439.98px) {
+		font-size: 60px;
+	}
+
+	@media (max-width: 1169.98px) {
+		font-size: 50px;
+	}
+
+	@media (max-width: 991.98px) {
+		font-size: 40px;
+	}
+
+	@media (max-width: 767.98px) {
+		font-size: 25px;
+	}
+}
+
+h3 {
+	font-weight: 600;
+	font-size: 50px;
+	// line-height: 55px;
+	line-height: 110%;
+
+	@include responsive-auto(font-size, (50, 20), (1439.98, 1169.98, 991.98));
+}
+
+h4 {
+	font-weight: 600;
+	font-size: 40px;
+	// line-height: 44px;
+	line-height: 110%;
+
+	@include responsive-auto(font-size, (40, 18), (1439.98, 1169.98, 991.98));
+
+	@media (max-width: 991.98px) {
+		line-height: 130%;
+	}
+}
+
+h5 {
+	font-weight: 500;
+	font-size: 22px;
+	// line-height: 24px;
+	line-height: 110%;
+	letter-spacing: 0.03em;
+
+	@include responsive-auto(font-size, (22, 16), (1439.98, 1169.98, 991.98));
+
+	@media (max-width: 991.98px) {
+		line-height: 130%;
+	}
+}
+
+h6 {
+	font-weight: 500;
+	font-size: 20px;
+	// line-height: 22px;
+	line-height: 110%;
+	letter-spacing: 0.03em;
+
+	@include responsive-auto(font-size, (20, 14), (1439.98, 1169.98, 991.98));
+
+	@media (max-width: 991.98px) {
+		line-height: 130%;
+	}
+}
+
+p {
+	font-weight: 400;
+	font-size: 16px;
+	// line-height: 29px;
+	line-height: 180%;
+	letter-spacing: 0.03em;
+
+	@media (max-width: 991.98px) {
+		line-height: 150%;
+	}
+
+	@include responsive-auto(font-size, (16, 14), (1439.98, 1169.98, 991.98));
+}
+
+// Button ========================================================================================================================================================
+.rs-btn {
+	text-transform: none;
+	cursor: pointer;
+	overflow: hidden;
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	z-index: 10;
+	transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1) 0s;
+	font-weight: 400;
+	font-size: 16px;
+	// line-height: 18px;
+	line-height: 110%;
+	letter-spacing: 0.03em;
+	padding: 22px 25px;
+	border-radius: 11px;
+
+	@include responsive-auto(font-size, (16, 14), (1439.98, 1169.98, 991.98));
+	@include responsive-auto(padding-top, (22, 14), (1439.98, 1169.98, 991.98));
+	@include responsive-auto(padding-right, (25, 20), (1439.98, 1169.98, 991.98));
+	@include responsive-auto(padding-bottom, (22, 14), (1439.98, 1169.98, 991.98));
+	@include responsive-auto(padding-left, (25, 20), (1439.98, 1169.98, 991.98));
+
+	&._btn-primary {
+		color: #fff;
+		background-color: var(--primary-color);
+		box-shadow: inset 0 0 0 0 #000;
+
+		@media (any-hover: hover) {
+			&:hover {
+				box-shadow: inset 0 -70px 0 0 #000;
+			}
+		}
+	}
+}
