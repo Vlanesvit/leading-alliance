@@ -4,7 +4,6 @@
 
 // Инициализация слайдеров
 function initSliders() {
-	// Перечень слайдов
 	if (document.querySelector('.rs-slider')) {
 		const sliderBlocks = document.querySelectorAll('.rs-slider');
 		sliderBlocks.forEach(sliderBlock => {
@@ -62,12 +61,6 @@ function initSliders() {
 					// dynamicBullets: true
 				},
 
-				scrollbar: {
-					el: scrollbar,
-				},
-
-				direction: 'vertical',
-
 				slidesPerView: 1,
 			});
 
@@ -117,10 +110,21 @@ function initSliders() {
 			// "Связка" слайдеров
 			sliderSwiperImg.controller.control = sliderSwiperContent;
 			sliderSwiperContent.controller.control = sliderSwiperImg;
+
+			sliderSwiperContent.on('slideChange', () => {
+				const totalSlides = sliderSwiperContent.slides.length; // Всего слайдов
+				if (totalSlides === 0) return; // Защита от деления на 0
+
+				const heightStep = 100 / totalSlides; // Шаг изменения высоты
+				const realIndex = sliderSwiperContent.realIndex; // Реальный индекс слайда
+
+				const currentHeight = (realIndex + 1) * heightStep; // Высота для текущего слайда
+
+				scrollbar.style.setProperty('--height', `${currentHeight}%`);
+			});
 		});
 	}
 
-	// Перечень слайдеров
 	if (document.querySelector('.rs-catalog-nav__slider')) {
 		// До этой ширины слайдер будет неактивным
 		const breakpoint = window.matchMedia('(min-width: 991.98px)');
@@ -214,6 +218,161 @@ function initSliders() {
 							},
 						},
 					});
+				});
+
+			});
+		}
+
+		breakpoint.addListener(breakpointChecker);
+		breakpointChecker();
+	}
+
+	if (document.querySelector('.rs-catalog-nav__slider')) {
+		// До этой ширины слайдер будет неактивным
+		const breakpoint = window.matchMedia('(max-width: 991.98px)');
+
+		let sliderSwiper;
+
+		const breakpointChecker = function () {
+			if (breakpoint.matches === true) {
+				// Выключаем слайдер
+				if (sliderSwiper !== undefined) sliderSwiper.destroy(true, true);
+				return;
+			} else if (breakpoint.matches === false) {
+				// Включаем слайдер
+				return enableSwiper();
+			}
+		};
+
+		// Инициализация слайдера
+		const enableSwiper = function () {
+			const sliderBlocks = document.querySelectorAll('.rs-product-slider');
+
+			sliderBlocks.forEach(sliderBlock => {
+				const sliders = sliderBlock.querySelectorAll('.rs-product-slider__slider');
+				const scrollbar = sliderBlock.querySelector('.rs-product-slider__scrollbar');
+
+				sliders.forEach(slider => {
+					sliderSwiper = new Swiper(slider, {
+						// // Автопрокрутка
+						// autoplay: {
+						// 	// Пауза между прокруткой
+						// 	delay: 10000,
+						// 	// Закончить на последнем слайде
+						// 	stopOnLastSlide: false,
+						// 	// Отключить после ручного переключения
+						// 	disableOnInteraction: false,
+						// },
+
+						// Обновить свайпер
+						// при изменении элементов слайдера
+						observer: true,
+						// при изменении родительских элементов слайдера
+						observeParents: true,
+						// при изменении дочерних элементов слайдера
+						observeSlideChildren: true,
+
+						// Скорость смены слайдов
+						speed: 500,
+
+						// Включение/отключение
+						// перетаскивание на ПК
+						simulateTouch: false,
+						allowTouchMove: false,
+
+						// Чувствительность свайпа
+						touchRadio: 1,
+						// Угол срабатывания свайпа/перетаскивания
+						touchAngle: 45,
+						waitForTransition: false,
+
+						// Цикличность слайдера
+						// loop: true,
+
+						// Анимация переключения
+						// effect: 'fade',
+
+						// Курсор
+						// grabCursor: true,
+
+						slidesPerView: 4.23,
+
+						centeredSlides: true,
+
+						mousewheel: {
+							invert: false, // Управление колесом мыши
+							sensitivity: 1, // Чувствительность (чем больше, тем быстрее прокрутка)
+						},
+					});
+
+					// Функция для обновления классов слайдов
+					function updateSlideClasses() {
+						// Получаем все слайды
+						const allSlides = slider.querySelectorAll('.swiper-slide');
+
+						// Удаляем все возможные классы перед обновлением
+						allSlides.forEach(slide => {
+							slide.classList.remove(
+								'swiper-slide-prev-prev-prev-prev-prev',
+								'swiper-slide-prev-prev-prev-prev',
+								'swiper-slide-prev-prev-prev',
+								'swiper-slide-prev-prev',
+								'swiper-slide-prev',
+								'swiper-slide-active',
+								'swiper-slide-next',
+								'swiper-slide-next-next',
+								'swiper-slide-next-next-next',
+								'swiper-slide-next-next-next-next',
+								'swiper-slide-next-next-next-next-next'
+							);
+						});
+
+						const activeIndex = sliderSwiper.activeIndex;
+
+						// Назначаем классы новым слайдам
+						allSlides.forEach((slide, index) => {
+							if (index === activeIndex - 5) {
+								slide.classList.add('swiper-slide-prev-prev-prev-prev-prev');
+							} else if (index === activeIndex - 4) {
+								slide.classList.add('swiper-slide-prev-prev-prev-prev');
+							} else if (index === activeIndex - 3) {
+								slide.classList.add('swiper-slide-prev-prev-prev');
+							} else if (index === activeIndex - 2) {
+								slide.classList.add('swiper-slide-prev-prev');
+							} else if (index === activeIndex - 1) {
+								slide.classList.add('swiper-slide-prev');
+							} else if (index === activeIndex) {
+								slide.classList.add('swiper-slide-active');
+							} else if (index === activeIndex + 1) {
+								slide.classList.add('swiper-slide-next');
+							} else if (index === activeIndex + 2) {
+								slide.classList.add('swiper-slide-next-next');
+							} else if (index === activeIndex + 3) {
+								slide.classList.add('swiper-slide-next-next-next');
+							} else if (index === activeIndex + 4) {
+								slide.classList.add('swiper-slide-next-next-next-next');
+							} else if (index === activeIndex + 5) {
+								slide.classList.add('swiper-slide-next-next-next-next-next');
+							}
+						});
+
+
+						const totalSlides = sliderSwiper.slides.length; // Всего слайдов
+						if (totalSlides === 0) return; // Защита от деления на 0
+						const heightStep = 100 / totalSlides; // Шаг изменения высоты
+						const realIndex = sliderSwiper.realIndex; // Реальный индекс слайда
+						const currentHeight = (realIndex + 1) * heightStep; // Высота для текущего слайда
+						scrollbar.style.setProperty('--width', `${currentHeight}%`);
+					}
+
+					// Вызов функции при смене слайда
+					sliderSwiper.on('slideChangeTransitionStart', updateSlideClasses);
+					sliderSwiper.on('slideChange', updateSlideClasses);
+					sliderSwiper.on('touchMove', updateSlideClasses);
+					sliderSwiper.on('transitionEnd', updateSlideClasses);
+
+					// Инициализация классов при загрузке
+					updateSlideClasses();
 				});
 
 			});

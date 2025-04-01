@@ -23,12 +23,69 @@ section {
 	color: var(--primary-color);
 }
 
+.change-text {
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 130%;
+	letter-spacing: 0.03em;
+	position: absolute;
+
+	@media (max-width: 991.98px) {
+		display: none;
+	}
+}
+
+.angles {
+	position: absolute;
+	pointer-events: none;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: -1;
+
+	@media (max-width: 991.98px) {
+		display: none;
+	}
+}
+.angle {
+	position: absolute;
+	width: 12px;
+	height: 12px;
+}
+.angle-top-left {
+	top: 0;
+	left: 0;
+	border-bottom: 1px solid #707070;
+	border-right: 1px solid #707070;
+}
+.angle-top-right {
+	top: 0;
+	right: 0;
+	border-bottom: 1px solid #707070;
+	border-left: 1px solid #707070;
+}
+.angle-bottom-right {
+	bottom: 0;
+	right: 0;
+	border-top: 1px solid #707070;
+	border-left: 1px solid #707070;
+}
+.angle-bottom-left {
+	bottom: 0;
+	left: 0;
+	border-top: 1px solid #707070;
+	border-right: 1px solid #707070;
+}
+
 // Text ========================================================================================================================================================
 h1 {
 	font-weight: 600;
 	font-size: 90px;
 	// line-height: 90px;
 	line-height: 100%;
+
+	@include responsive-auto(font-size, (90, 30), (1439.98, 1169.98, 991.98));
 }
 
 h2 {
@@ -137,6 +194,7 @@ p {
 	letter-spacing: 0.03em;
 	padding: 22px 25px;
 	border-radius: 11px;
+	gap: 10px;
 
 	@include responsive-auto(font-size, (16, 14), (1439.98, 1169.98, 991.98));
 	@include responsive-auto(padding-top, (22, 14), (1439.98, 1169.98, 991.98));

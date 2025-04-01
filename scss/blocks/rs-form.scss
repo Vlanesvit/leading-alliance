@@ -1,0 +1,92 @@
+@import "../base/_mixin";
+
+.rs-form {
+	background-color: #161617;
+	color: #fff;
+	padding: 214px 0px 70px;
+	position: relative;
+	z-index: 1;
+	overflow: visible;
+
+	@include responsive-auto(padding-top, (214, 30), (1439.98, 1169.98, 991.98));
+	@include responsive-auto(padding-bottom, (70, 30), (1439.98, 1169.98, 991.98));
+
+	// .rs-form__img
+	&__img {
+		position: absolute;
+		right: 47px;
+		bottom: 0px;
+		z-index: -1;
+		max-width: 61.4%;
+		pointer-events: none;
+
+		@media (max-width: 991.98px) {
+			display: none;
+		}
+
+		img {
+			width: 100%;
+			object-fit: contain;
+		}
+	}
+
+	// .rs-form__container
+	&__container {
+	}
+
+	// .rs-form__wrapper
+	&__wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 30px;
+		position: relative;
+		padding-top: 237px;
+
+		@media (max-width: 1439.98px) {
+			gap: 20px;
+		}
+
+		@include responsive-auto(padding-top, (237, 30), (1439.98, 1169.98, 991.98));
+
+		&::after {
+			content: "";
+			position: absolute;
+			top: 27px;
+			left: -12vw;
+			z-index: -1;
+			pointer-events: none;
+			width: 58.6vw;
+			aspect-ratio: 1;
+			border-radius: 50%;
+			border: 1px solid #707070;
+		}
+	}
+
+	// .rs-form__item
+	&__item {
+		display: flex;
+		align-items: flex-start;
+		flex-direction: column;
+		justify-content: flex-end;
+
+		flex: 1 1 calc(50% - 15px);
+
+		@media (max-width: 767.98px) {
+			flex: 1 1 100%;
+		}
+
+		.rs-btn {
+			margin: 0px 0px 10px auto;
+			font-weight: 400;
+			font-size: 14px;
+			letter-spacing: 0.03em;
+			color: #fff;
+		}
+
+		h2 {
+			font-weight: 600;
+			line-height: 100%;
+			letter-spacing: unset;
+		}
+	}
+}

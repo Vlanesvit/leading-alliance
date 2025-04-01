@@ -1,0 +1,95 @@
+@import "../base/_mixin";
+
+.rs-logo {
+	margin-top: 139px;
+
+	@include responsive-auto(margin-top, (139, 30), (1439.98, 1169.98, 991.98));
+
+	@media (min-width: 1439.98px) {
+		margin-bottom: -30px;
+	}
+
+	// .rs-logo__container
+	&__container {
+	}
+
+	&__marquee {
+		position: relative;
+
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			top: -10px;
+			bottom: -10px;
+			height: calc(100% + 20px);
+			width: 300px;
+			display: block;
+			z-index: 10;
+			pointer-events: none;
+		}
+
+		&::before {
+			right: 100%;
+			background: linear-gradient(270deg, #fff 0%, rgba(255, 255, 255, 0) 100%);
+			transform: rotate(180deg);
+		}
+
+		&::after {
+			left: 100%;
+			background: linear-gradient(270deg, #fff 41.05%, rgba(255, 255, 255, 0) 100%);
+		}
+
+		&[data-direction="left"] {
+			ul {
+				li {
+					&:not(:first-child) {
+						margin-left: 30px;
+
+						@include responsive-auto(margin-left, (30, 15), (1439.98, 1169.98, 991.98));
+					}
+				}
+			}
+		}
+
+		&[data-direction="right"] {
+			ul {
+				li {
+					&:not(:last-child) {
+						margin-right: 30px;
+
+						@include responsive-auto(margin-right, (30, 15), (1439.98, 1169.98, 991.98));
+					}
+				}
+			}
+		}
+
+		ul {
+			display: flex;
+
+			li {
+				width: 100%;
+				max-width: 250px;
+				flex-shrink: 0;
+
+				@include responsive-auto(max-width, (250, 100), (1439.98, 1169.98, 991.98));
+
+				@media (any-hover: hover) {
+					&:hover {
+						img {
+							filter: grayscale(0);
+							opacity: 1;
+						}
+					}
+				}
+
+				img {
+					object-fit: contain;
+					filter: grayscale(1);
+					opacity: 0.3;
+					transition: all 0.3s ease 0s;
+				}
+			}
+		}
+	}
+}

@@ -220,8 +220,10 @@ function headerScroll() {
 		if (window.scrollY > 500) {
 			// Скрытие шапки
 			if (scrollTop > lastScrollTop) {
+				header.style.transform = `translateY(-${header.clientHeight + 1}px)`;
 				header.classList.remove('_header-show');
 			} else {
+				header.style.transform = "translateY(0px)";
 				header.classList.add('_header-show');
 			}
 		} else {

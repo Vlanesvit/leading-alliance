@@ -1,0 +1,135 @@
+.rs-form {
+  background-color: #161617;
+  color: #fff;
+  padding: 214px 0px 70px;
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+}
+@media (max-width: 1439.98px) {
+  .rs-form {
+    padding-top: 152.6666666667px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-form {
+    padding-top: 91.3333333333px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-form {
+    padding-top: 30px;
+  }
+}
+@media (max-width: 1439.98px) {
+  .rs-form {
+    padding-bottom: 56.6666666667px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-form {
+    padding-bottom: 43.3333333333px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-form {
+    padding-bottom: 30px;
+  }
+}
+.rs-form__img {
+  position: absolute;
+  right: 47px;
+  bottom: 0px;
+  z-index: -1;
+  max-width: 61.4%;
+  pointer-events: none;
+}
+@media (max-width: 991.98px) {
+  .rs-form__img {
+    display: none;
+  }
+}
+.rs-form__img img {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.rs-form__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 30px;
+  position: relative;
+  padding-top: 237px;
+}
+@media (max-width: 1439.98px) {
+  .rs-form__wrapper {
+    gap: 20px;
+  }
+}
+@media (max-width: 1439.98px) {
+  .rs-form__wrapper {
+    padding-top: 168px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-form__wrapper {
+    padding-top: 99px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-form__wrapper {
+    padding-top: 30px;
+  }
+}
+.rs-form__wrapper::after {
+  content: "";
+  position: absolute;
+  top: 27px;
+  left: -12vw;
+  z-index: -1;
+  pointer-events: none;
+  width: 58.6vw;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid #707070;
+}
+.rs-form__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 calc(50% - 15px);
+          flex: 1 1 calc(50% - 15px);
+}
+@media (max-width: 767.98px) {
+  .rs-form__item {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
+  }
+}
+.rs-form__item .rs-btn {
+  margin: 0px 0px 10px auto;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  color: #fff;
+}
+.rs-form__item h2 {
+  font-weight: 600;
+  line-height: 100%;
+  letter-spacing: unset;
+}
