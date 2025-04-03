@@ -1,0 +1,51 @@
+@import "../base/_mixin";
+
+.rs-banner {
+	min-height: 212px;
+	background: linear-gradient(155deg, #000 0%, #161617 100%);
+	color: #fff;
+
+	@include responsive-auto(min-height, (212, 120), (1439.98, 1169.98, 991.98, 767.98));
+
+	@media (max-width: 991.98px) {
+		background: #1e1e1e;
+	}
+
+	// .rs-banner__container
+	&__container {
+	}
+
+	// .rs-banner__wrapper
+	&__wrapper {
+		max-width: 1510px;
+		margin: 0 auto;
+		padding: 196px 0px 130px;
+
+		@include responsive-auto(padding-top, (196, 100), (1439.98, 1169.98, 991.98, 767.98));
+		@include responsive-auto(padding-bottom, (130, 50), (1439.98, 1169.98, 991.98, 767.98));
+	}
+
+	// .rs-banner__desc
+	&__desc {
+		text-align: center;
+
+		h2 {
+			font-weight: 600;
+			font-size: 60px;
+			// line-height: 66px;
+			line-height: 110%;
+
+			@media (max-width: 1169.98px) {
+				font-size: 50px;
+			}
+
+			@media (max-width: 991.98px) {
+				font-size: 40px;
+			}
+
+			@media (max-width: 767.98px) {
+				font-size: 25px;
+			}
+		}
+	}
+}

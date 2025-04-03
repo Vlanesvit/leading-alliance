@@ -7,6 +7,19 @@
 	@include responsive-auto(padding-top, (176, 30), (1439.98, 1169.98, 991.98));
 	@include responsive-auto(padding-bottom, (49, 30), (1439.98, 1169.98, 991.98));
 
+	&.rs-text-2 {
+		height: 100vh;
+		padding: 100px 0px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: var(--primary-color);
+		color: #fff;
+
+		@include responsive-auto(padding-top, (100, 30), (1439.98, 1169.98, 991.98));
+		@include responsive-auto(padding-bottom, (100, 30), (1439.98, 1169.98, 991.98));
+	}
+
 	// .rs-text__container
 	&__container {
 	}
@@ -19,10 +32,26 @@
 		align-items: center;
 		justify-content: center;
 		position: relative;
+		z-index: 1;
 		max-width: 1206px;
 		margin: 0 auto;
 
+		.rs-text-2 & {
+			max-width: 1083px;
+		}
+
 		h1 {
+		}
+
+		h2 {
+			margin-top: 7px;
+			font-weight: 600;
+			font-size: 65px;
+			// line-height: 65px;
+			line-height: 100%;
+			text-align: center;
+
+			@include responsive-auto(font-size, (65, 30), (1439.98, 1169.98, 991.98, 767.98));
 		}
 
 		p {
@@ -34,6 +63,24 @@
 
 			@include responsive-auto(font-size, (20, 14), (1439.98, 1169.98, 991.98));
 		}
+
+		& > * {
+			&:first-child {
+				margin-top: 0px !important;
+			}
+
+			&:last-child {
+				margin-bottom: 0px !important;
+			}
+		}
+	}
+
+	&__desc {
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
 	}
 
 	&__icons {
@@ -65,6 +112,11 @@
 				bottom: 1%;
 				left: 2%;
 
+				.rs-text-2 & {
+					bottom: -33%;
+					left: -8%;
+				}
+
 				@media (max-width: 1439.98px) {
 					max-width: 7%;
 				}
@@ -72,6 +124,11 @@
 			&.rs-text__icon-2 {
 				top: -33%;
 				left: 25%;
+
+				.rs-text-2 & {
+					top: -44%;
+					left: 23%;
+				}
 
 				@media (max-width: 1439.98px) {
 					top: -40%;
@@ -81,6 +138,11 @@
 			&.rs-text__icon-3 {
 				bottom: 27%;
 				right: 6.5%;
+
+				.rs-text-2 & {
+					bottom: -24%;
+					right: -9.3%;
+				}
 
 				@media (max-width: 1439.98px) {
 					right: -1%;

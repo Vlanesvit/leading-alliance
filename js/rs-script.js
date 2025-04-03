@@ -41,6 +41,61 @@ function addLoadedClass() {
 }
 addLoadedClass()
 
+function shuffleText() {
+	const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+	function shuffleTextEffect(span, originalText) {
+		console.log('Запуск анимации для:', span.textContent);
+		let iterations = 0;
+		const shuffleInterval = setInterval(() => {
+			span.textContent = span.textContent
+				.split('')
+				.map((char, index) => {
+					if (index < iterations) {
+						return originalText[index];
+					}
+					return characters[Math.floor(Math.random() * characters.length)];
+				})
+				.join('');
+
+			iterations += 1 / 0.5;
+
+			if (iterations >= originalText.length) {
+				clearInterval(shuffleInterval);
+				span.textContent = originalText;
+			}
+		}, 50);
+	}
+
+	function handleIntersection(entries, observer) {
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				console.log('Элемент в зоне видимости:', entry.target);
+				const span = entry.target.querySelector('span');
+				if (span && !span.dataset.animated) {
+					const originalText = span.getAttribute('data-shuffle-text');
+					shuffleTextEffect(span, originalText);
+					span.dataset.animated = "true";
+					observer.unobserve(entry.target); // Отключаем наблюдение
+				}
+			}
+		});
+	}
+
+	const observer = new IntersectionObserver(handleIntersection, {
+		root: null,
+		threshold: 0.2, // Уменьшаем, чтобы срабатывало раньше
+	});
+
+	document.querySelectorAll('.shuffle-text li').forEach(item => {
+		const itemText = item.textContent.trim();
+		item.innerHTML = `<span data-shuffle-text="${itemText}">${itemText}</span>`;
+		observer.observe(item);
+		console.log('Добавлен элемент в отслеживание:', item);
+	});
+}
+document.addEventListener('DOMContentLoaded', shuffleText);
+
 /* ====================================
 Инициализация галереи
 ==================================== */

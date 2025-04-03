@@ -8,6 +8,7 @@
 	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
 	<link rel="stylesheet" href="lib/swiper/swiper-bundle.min.css">
 	<link rel="stylesheet" href="lib/fancybox/fancybox.css">
+	<link rel="stylesheet" href="lib/aos/aos.css">
 	<link rel="stylesheet" href="css/rs-style.css" />
 	<title>О нас | Лидинг Альянс</title>
 </head>
@@ -207,18 +208,30 @@
 
 		<main class="page">
 
+			<link rel="stylesheet" href="css/rs-banner.css">
+			<section class="rs-banner" data-aos="fade" data-aos-delay="100">
+				<div class="rs-banner__container">
+					<div class="rs-banner__wrapper">
+						<div class="rs-banner__desc">
+							<h2><span class="primary-color">Инновации и технологии,</span> которые работают на вашу
+								безопасность и успех!</h2>
+						</div>
+					</div>
+				</div>
+			</section>
+
 			<link rel="stylesheet" href="css/rs-text-block.css">
 			<div class="rs-sticky-block">
-				<section class="rs-text-block rs-text-block-inner">
+				<section class="rs-text-block">
 					<div class="rs-text-block__container">
 						<div class="rs-text-block__wrapper">
-							<div class="rs-text-block__item">
+							<div class="rs-text-block__item" data-aos="fade-up" data-aos-delay="100">
 								<div class="rs-text-block__title">
 									<h4><span class="primary-color">Компания «Лидинг Альянс»</span> —
 										это синергия профессионализма, инноваций и креативности.</h4>
 								</div>
 							</div>
-							<div class="rs-text-block__item">
+							<div class="rs-text-block__item" data-aos="fade-up" data-aos-delay="200">
 								<div class="rs-text-block__desc">
 									<p>Мы разрабатываем интеллектуальные системы видеонаблюдения, которые не просто
 										наблюдают, а становятся мощным инструментом для оптимизации бизнеса и
@@ -245,23 +258,100 @@
 				</div>
 			</section>
 
-			<link rel="stylesheet" href="css/rs-catalog-nav.css">
+			<link rel="stylesheet" href="css/rs-about.css">
+			<link rel="stylesheet" href="css/rs-features.css">
 			<div class="rs-sticky-block">
-				<section class="rs-catalog-nav">
-					<div class="rs-catalog-nav__container">
-						<div class="rs-catalog-nav__wrapper">
-							<div class="rs-catalog-nav__head">
+				<section class="rs-about" data-aos="fade" data-aos-delay="100">
+					<div class="rs-about__container">
+						<div class="rs-about__head">
+							<h6>Ключевые отделы компании</h6>
+						</div>
+
+						<div class="rs-about__wrapper">
+							<div class="rs-about__img_slider swiper">
+								<div class="rs-about__img_swiper swiper-wrapper">
+									<div class="rs-about__img_slide swiper-slide">
+										<img src="./img/2_big_icon_1.png" alt="">
+									</div>
+
+									<div class="rs-about__img_slide swiper-slide">
+										<img src="./img/2_big_icon_2.png" alt="">
+									</div>
+
+									<div class="rs-about__img_slide swiper-slide">
+										<img src="./img/2_big_icon_3.png" alt="">
+									</div>
+
+									<div class="rs-about__img_slide swiper-slide">
+										<img src="./img/2_big_icon_4.png" alt="">
+									</div>
+
+									<div class="rs-about__img_slide swiper-slide">
+										<img src="./img/2_big_icon_5.png" alt="">
+									</div>
+								</div>
+							</div>
+							<div class="rs-about__slider swiper">
+								<div class="rs-about__swiper swiper-wrapper">
+									<div class="rs-about__slide swiper-slide">
+										<div class="rs-about__desc">
+											<h4>Клиентский отдел</h4>
+											<p>Ориентирован на развитие долгосрочных партнерств и поиск новых интересных
+												проектов.</p>
+										</div>
+									</div>
+
+									<div class="rs-about__slide swiper-slide">
+										<div class="rs-about__desc">
+											<h4>Сервисный центр</h4>
+											<p>Высококвалифицированная поддержка и обслуживание оборудования, включая
+												ремонт, замену и модернизацию.</p>
+										</div>
+									</div>
+
+									<div class="rs-about__slide swiper-slide">
+										<div class="rs-about__desc">
+											<h4>Складской отдел</h4>
+											<p>Обеспечивает бесперебойные поставки, тщательный контроль качества
+												собранного оборудования и оперативную доставку.</p>
+										</div>
+									</div>
+
+									<div class="rs-about__slide swiper-slide">
+										<div class="rs-about__desc">
+											<h4>Отдел разработок</h4>
+											<p>Создает инновационные решения и совершенствует продукты для актуальности
+												на рынке.</p>
+										</div>
+									</div>
+
+									<div class="rs-about__slide swiper-slide">
+										<div class="rs-about__desc">
+											<h4>Административный блок</h4>
+											<p>Координирует все процессы для достижения максимальной эффективности.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="rs-features">
+					<div class="rs-features__container">
+						<div class="rs-features__wrapper">
+							<div class="rs-features__head" data-aos="fade-up" data-aos-delay="100">
 								<h3>Преимущества компании</h3>
 							</div>
 
-							<div class="rs-catalog-nav__slider swiper">
-								<div class="rs-catalog-nav__swiper swiper-wrapper">
-									<div class="rs-catalog-nav__slide swiper-slide">
-										<div class="rs-catalog-nav__item">
-											<div class="rs-catalog-nav__img">
+							<div class="rs-features__slider swiper">
+								<div class="rs-features__swiper swiper-wrapper">
+									<div class="rs-features__slide swiper-slide">
+										<div class="rs-features__item" data-aos="fade-up" data-aos-delay="50">
+											<div class="rs-features__img">
 												<img src="./img/2_benefit_1.png" alt="">
 											</div>
-											<div class="rs-catalog-nav__desc">
+											<div class="rs-features__desc">
 												<h6>Профессиональная команда</h6>
 												<p>Сочетание опыта проверенных специалистов и свежего взгляда молодых
 													талантов</p>
@@ -269,12 +359,12 @@
 										</div>
 									</div>
 
-									<div class="rs-catalog-nav__slide swiper-slide">
-										<div class="rs-catalog-nav__item">
-											<div class="rs-catalog-nav__img">
+									<div class="rs-features__slide swiper-slide">
+										<div class="rs-features__item" data-aos="fade-up" data-aos-delay="100">
+											<div class="rs-features__img">
 												<img src="./img/2_benefit_2.png" alt="">
 											</div>
-											<div class="rs-catalog-nav__desc">
+											<div class="rs-features__desc">
 												<h6>Индивидуальный подход</h6>
 												<p>Каждая система разрабатывается с учётом уникальных потребностей
 													клиента</p>
@@ -282,12 +372,12 @@
 										</div>
 									</div>
 
-									<div class="rs-catalog-nav__slide swiper-slide">
-										<div class="rs-catalog-nav__item">
-											<div class="rs-catalog-nav__img">
+									<div class="rs-features__slide swiper-slide">
+										<div class="rs-features__item" data-aos="fade-up" data-aos-delay="150">
+											<div class="rs-features__img">
 												<img src="./img/2_benefit_3.png" alt="">
 											</div>
-											<div class="rs-catalog-nav__desc">
+											<div class="rs-features__desc">
 												<h6>Инновации</h6>
 												<p>Мы всегда на шаг впереди, внедряя самые современные технологии в наши
 													решения</p>
@@ -295,12 +385,12 @@
 										</div>
 									</div>
 
-									<div class="rs-catalog-nav__slide swiper-slide">
-										<div class="rs-catalog-nav__item">
-											<div class="rs-catalog-nav__img">
+									<div class="rs-features__slide swiper-slide">
+										<div class="rs-features__item" data-aos="fade-up" data-aos-delay="200">
+											<div class="rs-features__img">
 												<img src="./img/2_benefit_4.png" alt="">
 											</div>
-											<div class="rs-catalog-nav__desc">
+											<div class="rs-features__desc">
 												<h6>Надежность и поддержка</h6>
 												<p>Высококвалифицированный сервис и оперативное обслуживание во всех
 													уголках России</p>
@@ -313,16 +403,16 @@
 					</div>
 				</section>
 
-				<section class="rs-text-block rs-text-block-inner">
+				<section class="rs-text-block">
 					<div class="rs-text-block__container">
 						<div class="rs-text-block__wrapper">
-							<div class="rs-text-block__item">
+							<div class="rs-text-block__item" data-aos="fade-up" data-aos-delay="100">
 								<div class="rs-text-block__title">
 									<h4><span class="primary-color">Компания «Лидинг Альянс»</span> —
 										это больше, чем профессионалы.</h4>
 								</div>
 							</div>
-							<div class="rs-text-block__item">
+							<div class="rs-text-block__item" data-aos="fade-up" data-aos-delay="200">
 								<div class="rs-text-block__desc">
 									<p>Команда «Лидинг Альянс» – это больше, чем профессионалы. Это люди, которые любят
 										свое дело, стремятся к новым высотам и готовы готовы воплощать свои идеи в
@@ -343,20 +433,22 @@
 			<section class="rs-text rs-text-2">
 				<div class="rs-text__container">
 					<div class="rs-text__wrapper">
-						<p>Миссия компании</p>
-						<h2>С помощью инновационных технологий и слаженной работы команды профессионалов,
-							сделать бизнес наших клиентов безопасным и эффективным!</h2>
+						<div class="rs-text__desc" data-aos="fade-up" data-aos-delay="100">
+							<p>Миссия компании</p>
+							<h2>С помощью инновационных технологий и слаженной работы команды профессионалов,
+								сделать бизнес наших клиентов безопасным и эффективным!</h2>
+						</div>
 
 						<div class="rs-text__icons">
-							<div class="rs-text__icon rs-text__icon-1">
+							<div class="rs-text__icon rs-text__icon-1" data-aos="fade-up" data-aos-delay="50">
 								<img src="./img/2_text_img_1.png" alt="">
 							</div>
 
-							<div class="rs-text__icon rs-text__icon-2">
+							<div class="rs-text__icon rs-text__icon-2" data-aos="fade-up" data-aos-delay="100">
 								<img src="./img/2_text_img_2.png" alt="">
 							</div>
 
-							<div class="rs-text__icon rs-text__icon-3">
+							<div class="rs-text__icon rs-text__icon-3" data-aos="fade-up" data-aos-delay="150">
 								<img src="./img/2_text_img_3.png" alt="">
 							</div>
 						</div>
@@ -364,9 +456,40 @@
 				</div>
 			</section>
 
+			<link rel="stylesheet" href="css/rs-features.css">
+			<div class="rs-sticky-block">
+				<section class="rs-text-block">
+					<div class="rs-text-block__container">
+						<div class="rs-text-block__wrapper">
+							<div class="rs-text-block__item" data-aos="fade-up" data-aos-delay="100">
+								<div class="rs-text-block__title">
+									<h4>Мы <span class="primary-color">преодолеваем
+											стереотипы</span> об ограниченности возможностей. Для нас каждая
+										задача — это вызов, который мы принимаем
+										с энтузиазмом и стремлением к уникальному решению.</h4>
+								</div>
+							</div>
+							<div class="rs-text-block__item" data-aos="fade-up" data-aos-delay="200">
+								<div class="rs-text-block__desc">
+									<p>Мы преодолеваем стереотипы об ограниченности возможностей. Для нас каждая задача
+										– это вызов, который мы принимаем с энтузиазмом, что позволяет найти уникальные
+										и нестандартные решения.</p>
+									<p>Мы верим в индивидуальный подход, ценность личности и значимость каждого этапа
+										работы. Наши специалисты создают не только результат, но и безопасный,
+										экологичный процесс его достижения.</p>
+									<p>«Лидинг Альянс» – это о новых горизонтах, высоких стандартах и инновациях,
+										которые меняют реальность. Вместе с нами вы можете быть уверены: ваше будущее в
+										надежных руках.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+
 			<link rel="stylesheet" href="css/rs-form.css">
-			<section class="rs-form">
-				<div class="rs-form__img">
+			<section class="rs-form rs-form-inner" data-aos="fade" data-aos-delay="100">
+				<div class="rs-form__img" data-aos="zoom-in" data-aos-delay="200">
 					<img src="./img/logo_form.png" alt="">
 				</div>
 				<div class="rs-form__container">
@@ -482,6 +605,12 @@
 	<script src="js/rs-sliders-init.js"></script>
 	<script src="lib/fancybox/fancybox.umd.js"></script>
 	<script src="js/rs-script.js"></script>
+	<script src="lib/aos/aos.js"></script>
+	<script>
+		window.addEventListener('load', () => {
+			AOS.init({ duration: 500, easing: "ease-out-quart", once: true });
+		});
+	</script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.10/SmoothScroll.min.js"></script>
 	<script>SmoothScroll({ animationTime: 1e3, stepSize: 100, accelerationDelta: 50, accelerationMax: 3, touchpadSupport: !1 })</script>
 

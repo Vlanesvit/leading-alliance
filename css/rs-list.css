@@ -1,0 +1,214 @@
+.rs-list {
+  padding: 30px 0px;
+}
+.rs-list__head {
+  margin-bottom: 60px;
+}
+@media (max-width: 1439.98px) {
+  .rs-list__head {
+    margin-bottom: 46.6666666667px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-list__head {
+    margin-bottom: 33.3333333333px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-list__head {
+    margin-bottom: 20px;
+  }
+}
+.rs-list__item {
+  padding: 53px 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: 104px;
+}
+@media (max-width: 1439.98px) {
+  .rs-list__item {
+    padding-top: 42px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-list__item {
+    padding-top: 31px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-list__item {
+    padding-top: 20px;
+  }
+}
+@media (max-width: 1439.98px) {
+  .rs-list__item {
+    padding-bottom: 42px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-list__item {
+    padding-bottom: 31px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-list__item {
+    padding-bottom: 20px;
+  }
+}
+@media (max-width: 1439.98px) {
+  .rs-list__item {
+    gap: 76px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-list__item {
+    gap: 48px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-list__item {
+    gap: 20px;
+  }
+}
+@media (max-width: 767.98px) {
+  .rs-list__item {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+.rs-list__item:not(:last-child) {
+  border-bottom: 1px solid #b8b8b8;
+}
+.rs-list__item:first-child {
+  padding-top: 0px;
+}
+.rs-list__item:last-child {
+  margin-bottom: 0px;
+}
+.rs-list__title {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 calc(25% - 74px);
+          flex: 0 0 calc(25% - 74px);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 110%;
+  letter-spacing: 0.03em;
+  color: #000;
+  border: 1px solid #b8b8b8;
+  border-radius: 11px;
+  padding: 22px 25px;
+}
+@media (max-width: 1439.98px) {
+  .rs-list__title {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 25%;
+            flex: 0 0 25%;
+  }
+}
+@media (max-width: 1439.98px) {
+  .rs-list__title {
+    font-size: 15.3333333333px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-list__title {
+    font-size: 14.6666666667px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-list__title {
+    font-size: 14px;
+  }
+}
+@media (max-width: 1439.98px) {
+  .rs-list__title {
+    padding-top: 19.3333333333px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-list__title {
+    padding-top: 16.6666666667px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-list__title {
+    padding-top: 14px;
+  }
+}
+@media (max-width: 1439.98px) {
+  .rs-list__title {
+    padding-right: 23.3333333333px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-list__title {
+    padding-right: 21.6666666667px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-list__title {
+    padding-right: 20px;
+  }
+}
+@media (max-width: 1439.98px) {
+  .rs-list__title {
+    padding-bottom: 19.3333333333px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-list__title {
+    padding-bottom: 16.6666666667px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-list__title {
+    padding-bottom: 14px;
+  }
+}
+@media (max-width: 1439.98px) {
+  .rs-list__title {
+    padding-left: 23.3333333333px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-list__title {
+    padding-left: 21.6666666667px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-list__title {
+    padding-left: 20px;
+  }
+}
+.rs-list__desc {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+.rs-list__desc ul li:not(:last-child) {
+  margin-bottom: 30px;
+}
+@media (max-width: 1439.98px) {
+  .rs-list__desc ul li:not(:last-child) {
+    margin-bottom: 25px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-list__desc ul li:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-list__desc ul li:not(:last-child) {
+    margin-bottom: 15px;
+  }
+}
+.rs-list__desc ul li p {
+  margin-top: 10px;
+}

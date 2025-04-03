@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .rs-text-block {
   padding: 30px 0px;
 }
@@ -29,6 +30,197 @@
 .rs-text-block__title {
   max-width: 700px;
 }
+.rs-text-block-inner .rs-text-block__title {
+  max-width: 750px;
+}
+.rs-text-block-inner .rs-text-block__title h4 {
+  font-weight: 600;
+  font-size: 45px;
+  line-height: 110%;
+}
+.rs-text-block__desc > *:first-child {
+  margin-top: 0px !important;
+}
+.rs-text-block__desc > *:last-child {
+  margin-bottom: 0px !important;
+}
 .rs-text-block__desc .rs-btn {
   margin-top: 20px;
+}
+.rs-text-block__desc p {
+  margin: 17px 0px;
+}
+@media (max-width: 1439.98px) {
+  .rs-text-block__desc p {
+    margin-top: 14.6666666667px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-text-block__desc p {
+    margin-top: 12.3333333333px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-text-block__desc p {
+    margin-top: 10px;
+  }
+}
+@media (max-width: 1439.98px) {
+  .rs-text-block__desc p {
+    margin-bottom: 14.6666666667px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-text-block__desc p {
+    margin-bottom: 12.3333333333px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-text-block__desc p {
+    margin-bottom: 10px;
+  }
+}
+.rs-text-block__desc blockquote {
+  margin: 17px 0px;
+  border-radius: 20px;
+  padding: 30px;
+  background-color: var(--primary-color);
+  color: #fff;
+}
+@media (max-width: 1439.98px) {
+  .rs-text-block__desc blockquote {
+    padding: 26.6666666667px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-text-block__desc blockquote {
+    padding: 23.3333333333px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-text-block__desc blockquote {
+    padding: 20px;
+  }
+}
+@media (max-width: 1439.98px) {
+  .rs-text-block__desc blockquote {
+    margin-top: 14.6666666667px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-text-block__desc blockquote {
+    margin-top: 12.3333333333px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-text-block__desc blockquote {
+    margin-top: 10px;
+  }
+}
+@media (max-width: 1439.98px) {
+  .rs-text-block__desc blockquote {
+    margin-bottom: 14.6666666667px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-text-block__desc blockquote {
+    margin-bottom: 12.3333333333px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-text-block__desc blockquote {
+    margin-bottom: 10px;
+  }
+}
+.rs-text-block__desc blockquote p {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 150%;
+  letter-spacing: 0.03em;
+}
+@media (max-width: 1439.98px) {
+  .rs-text-block__desc blockquote p {
+    font-size: 16.6666666667px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-text-block__desc blockquote p {
+    font-size: 15.3333333333px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-text-block__desc blockquote p {
+    font-size: 14px;
+  }
+}
+.rs-text-block__desc blockquote > *:first-child {
+  margin-top: 0px !important;
+}
+.rs-text-block__desc blockquote > *:last-child {
+  margin-bottom: 0px !important;
+}
+.rs-text-block__desc ul {
+  margin: 17px 0px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 180%;
+  letter-spacing: 0.03em;
+}
+@media (max-width: 991.98px) {
+  .rs-text-block__desc ul {
+    line-height: 150%;
+  }
+}
+@media (max-width: 1439.98px) {
+  .rs-text-block__desc ul {
+    font-size: 15.3333333333px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-text-block__desc ul {
+    font-size: 14.6666666667px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-text-block__desc ul {
+    font-size: 14px;
+  }
+}
+@media (max-width: 1439.98px) {
+  .rs-text-block__desc ul {
+    margin-top: 14.6666666667px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-text-block__desc ul {
+    margin-top: 12.3333333333px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-text-block__desc ul {
+    margin-top: 10px;
+  }
+}
+@media (max-width: 1439.98px) {
+  .rs-text-block__desc ul {
+    margin-bottom: 14.6666666667px;
+  }
+}
+@media (max-width: 1169.98px) {
+  .rs-text-block__desc ul {
+    margin-bottom: 12.3333333333px;
+  }
+}
+@media (max-width: 991.98px) {
+  .rs-text-block__desc ul {
+    margin-bottom: 10px;
+  }
+}
+.rs-text-block__desc ul li::before {
+  content: "—";
+  margin-right: 5px;
+  display: inline-block;
+}
+.rs-text-block__desc ul li:not(:last-child) {
+  margin-bottom: 15px;
 }

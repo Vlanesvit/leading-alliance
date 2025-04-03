@@ -23,7 +23,7 @@ section {
 	color: var(--primary-color);
 }
 
-.change-text {
+.shuffle-text {
 	font-weight: 400;
 	font-size: 14px;
 	line-height: 130%;
@@ -213,4 +213,114 @@ p {
 			}
 		}
 	}
+}
+
+.form {
+	width: 100%;
+
+	// .form__wrapper
+	&__wrapper {
+		position: relative;
+	}
+
+	// .form__block
+	&__block {
+	}
+
+	// .form__line
+	&__line {
+		width: 100%;
+		position: relative;
+		margin-bottom: 10px;
+	}
+
+	&__footer {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-top: 20px;
+
+		@media (max-width: 1169.98px) and (min-width: 767.98px), (max-width: 539.98px) {
+			flex-direction: column;
+			justify-content: center;
+		}
+	}
+
+	&__agreement {
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 120%;
+		color: #7a7a7b;
+		max-width: 527px;
+		width: 100%;
+		margin-right: 15px;
+
+		@include responsive-auto(font-size, (16, 14), (1439.98, 1169.98, 991.98));
+
+		@media (max-width: 1169.98px) and (min-width: 767.98px), (max-width: 539.98px) {
+			margin-right: 0px;
+			margin-bottom: 15px;
+			max-width: 100%;
+			text-align: center;
+		}
+
+		a {
+			text-decoration: underline;
+			text-decoration-skip-ink: none;
+
+			@media (any-hover: hover) {
+				&:hover {
+					text-decoration: none;
+				}
+			}
+		}
+	}
+
+	// .form__button
+	&__button {
+		@media (max-width: 1169.98px) and (min-width: 767.98px), (max-width: 539.98px) {
+			width: 100%;
+		}
+
+		.rs-btn {
+			width: 100%;
+			white-space: nowrap;
+		}
+	}
+}
+
+.rs-input {
+	outline: none;
+	width: 100%;
+	transition: 0.3s ease 0s;
+	transition-property: background-color, border-color;
+	background-color: transparent;
+	border: 1px solid rgba(223, 223, 223, 0.5);
+	border-radius: 11px;
+	padding: 21px 25px;
+	font-weight: 400;
+	font-size: 16px;
+	color: #fff;
+
+	@include responsive-auto(font-size, (16, 14), (1439.98, 1169.98, 991.98));
+	@include responsive-auto(padding-top, (21, 14), (1439.98, 1169.98, 991.98));
+	@include responsive-auto(padding-right, (25, 20), (1439.98, 1169.98, 991.98));
+	@include responsive-auto(padding-bottom, (21, 14), (1439.98, 1169.98, 991.98));
+	@include responsive-auto(padding-left, (25, 20), (1439.98, 1169.98, 991.98));
+
+	&::placeholder {
+		color: #7a7a7b;
+	}
+
+	&:focus {
+		border-color: #fff;
+	}
+}
+
+textarea.rs-input {
+	padding: 25px;
+	min-height: 184px;
+	resize: none;
+
+	@include responsive-auto(padding, (25, 20), (1439.98, 1169.98, 991.98));
 }

@@ -19,7 +19,7 @@
   .rs-slider {
     padding-top: 83px;
     padding-bottom: 20px;
-    background-color: #1e1e1e;
+    background: #1e1e1e;
   }
 }
 @media (max-width: 767.98px) {
@@ -51,7 +51,7 @@
     padding: 20px 0px;
   }
 }
-.rs-slider .change-text {
+.rs-slider .shuffle-text {
   text-align: right;
   color: #707070;
   bottom: 24px;

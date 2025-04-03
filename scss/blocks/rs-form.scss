@@ -11,6 +11,29 @@
 	@include responsive-auto(padding-top, (214, 30), (1439.98, 1169.98, 991.98));
 	@include responsive-auto(padding-bottom, (70, 30), (1439.98, 1169.98, 991.98));
 
+	&.rs-form-inner {
+		padding: 350px 0px 23px;
+
+		@include responsive-auto(padding-top, (350, 30), (1439.98, 1169.98, 991.98));
+		@include responsive-auto(padding-bottom, (23, 30), (1439.98, 1169.98, 991.98));
+	}
+
+	&.rs-form-fos {
+		padding-top: 130px;
+		padding-bottom: 164px;
+		border-radius: 50px;
+		margin: -50px 0px;
+		position: relative;
+		z-index: 11;
+		overflow: hidden;
+
+		@include responsive-auto(padding-top, (130, 30), (1439.98, 1169.98, 991.98));
+		@include responsive-auto(padding-bottom, (164, 30), (1439.98, 1169.98, 991.98));
+		@include responsive-auto(border-radius, (50, 20), (1439.98, 1169.98, 991.98));
+		@include responsive-auto(margin-top, (-50, -20), (1439.98, 1169.98, 991.98));
+		@include responsive-auto(margin-bottom, (-50, -20), (1439.98, 1169.98, 991.98));
+	}
+
 	// .rs-form__img
 	&__img {
 		position: absolute;
@@ -22,6 +45,11 @@
 
 		@media (max-width: 991.98px) {
 			display: none;
+		}
+
+		.rs-form-inner & {
+			right: -10px;
+			bottom: -31px;
 		}
 
 		img {
@@ -48,6 +76,16 @@
 
 		@include responsive-auto(padding-top, (237, 30), (1439.98, 1169.98, 991.98));
 
+		.rs-form-inner & {
+			padding-top: 285px;
+
+			@include responsive-auto(padding-top, (285, 30), (1439.98, 1169.98, 991.98));
+		}
+
+		.rs-form-fos & {
+			padding-top: 0px;
+		}
+
 		&::after {
 			content: "";
 			position: absolute;
@@ -59,6 +97,11 @@
 			aspect-ratio: 1;
 			border-radius: 50%;
 			border: 1px solid #707070;
+
+			.rs-form-fos & {
+				top: 17.6vw;
+				left: -25vw;
+			}
 		}
 	}
 
@@ -68,11 +111,16 @@
 		align-items: flex-start;
 		flex-direction: column;
 		justify-content: flex-end;
+		position: relative;
 
 		flex: 1 1 calc(50% - 15px);
 
 		@media (max-width: 767.98px) {
 			flex: 1 1 100%;
+		}
+
+		.rs-form-fos & {
+			justify-content: flex-start;
 		}
 
 		.rs-btn {
@@ -87,6 +135,37 @@
 			font-weight: 600;
 			line-height: 100%;
 			letter-spacing: unset;
+		}
+
+		p {
+			margin-top: 20px;
+
+			@include responsive-auto(margin-top, (20, 10), (1439.98, 1169.98, 991.98));
+		}
+
+		.form {
+			padding-top: 10px;
+		}
+	}
+
+	&.rs-form-fos {
+		.angles {
+			position: relative;
+			width: auto;
+			height: auto;
+			margin-top: 66px;
+
+			@include responsive-auto(margin-top, (66, 20), (1439.98, 1169.98, 991.98));
+
+			@media (max-width: 991.98px) {
+				display: none;
+			}
+		}
+
+		.angle {
+			position: relative;
+		}
+		.angle-top-left {
 		}
 	}
 }

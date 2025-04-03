@@ -1,25 +1,16 @@
 .rs-breadcrumbs {
 	position: relative;
-	padding-top: 134px;
-
-	@media (max-width: 1439.98px) {
-		padding-top: 115px;
-	}
-
-	@media (max-width: 991.98px) {
-		padding-top: 100px;
-	}
 
 	// .rs-breadcrumbs__container
 	&__container {
+		padding: 0;
+		max-width: 100%;
 	}
 
 	// .rs-breadcrumbs__navigation
 	&__navigation {
 		position: relative;
-		max-width: 1193px;
 		width: 100%;
-		margin: 0px 0px 0px auto;
 	}
 
 	// .rs-breadcrumbs__list
@@ -32,10 +23,13 @@
 			display: flex;
 			align-items: center;
 			font-weight: 400;
-			font-size: 14px;
-			// line-height: 18px;
-			line-height: 130%;
-			color: #6f6f6f;
+			font-size: 16px;
+			// line-height: 29px;
+			line-height: 180%;
+			letter-spacing: 0.03em;
+			color: #313131;
+
+			@include responsive-auto(font-size, (16, 14), (1439.98, 1169.98, 991.98));
 
 			& > a {
 				display: flex;
@@ -51,15 +45,9 @@
 
 			&:not(:last-child) {
 				&::after {
-					content: "";
+					content: " / ";
 					display: block;
-					width: 6px;
-					height: 12px;
-					background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='6' height='12' viewBox='0 0 6 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1 1L5 6L1 11' stroke='%236F6F6F' stroke-width='1.5' stroke-linecap='round'/%3e%3c/svg%3e ");
-					background-repeat: no-repeat;
-					background-position: center;
-					background-size: contain;
-					margin: 0px 10px;
+					margin: 0px 5px;
 				}
 			}
 		}
