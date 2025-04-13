@@ -190,7 +190,7 @@
 .rs-catalog-nav-inner .rs-catalog-nav__item {
   background-color: #f4f4f6;
 }
-.rs-catalog-nav__item.rs-catalog-nav__item--dark .rs-catalog-nav__item {
+.rs-catalog-nav__item.rs-catalog-nav__item--dark {
   background: #131314;
   color: #fff;
 }

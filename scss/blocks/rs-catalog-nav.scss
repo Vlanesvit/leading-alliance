@@ -94,12 +94,10 @@
 		}
 
 		&.rs-catalog-nav__item--dark {
-			.rs-catalog-nav {
-				&__item {
-					background: #131314;
-					color: #fff;
-				}
+			background: #131314;
+			color: #fff;
 
+			.rs-catalog-nav {
 				&__img {
 					height: 100%;
 					width: 100%;

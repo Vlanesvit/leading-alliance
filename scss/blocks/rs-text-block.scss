@@ -29,6 +29,7 @@
 	// .rs-text-block__title
 	&__title {
 		max-width: 700px;
+		color: var(--title-color);
 
 		.rs-text-block-inner & {
 			max-width: 750px;

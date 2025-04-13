@@ -2,6 +2,7 @@
   min-height: 212px;
   background: linear-gradient(155deg, #000 0%, #161617 100%);
   color: #fff;
+  position: relative;
 }
 @media (max-width: 1439.98px) {
   .rs-banner {
@@ -27,6 +28,20 @@
   .rs-banner {
     background: #1e1e1e;
   }
+}
+.rs-banner::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  display: block;
+  top: -20%;
+  right: -23%;
+  border-radius: 50%;
+  border: 1px solid #404040;
+  height: 1303px;
+  aspect-ratio: 1;
+  z-index: -1;
+  pointer-events: none;
 }
 .rs-banner__wrapper {
   max-width: 1510px;

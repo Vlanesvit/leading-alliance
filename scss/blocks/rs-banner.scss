@@ -4,11 +4,27 @@
 	min-height: 212px;
 	background: linear-gradient(155deg, #000 0%, #161617 100%);
 	color: #fff;
+	position: relative;
 
 	@include responsive-auto(min-height, (212, 120), (1439.98, 1169.98, 991.98, 767.98));
 
 	@media (max-width: 991.98px) {
 		background: #1e1e1e;
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		pointer-events: none;
+		display: block;
+		top: -20%;
+		right: -23%;
+		border-radius: 50%;
+		border: 1px solid #404040;
+		height: 1303px;
+		aspect-ratio: 1;
+		z-index: -1;
+		pointer-events: none;
 	}
 
 	// .rs-banner__container
