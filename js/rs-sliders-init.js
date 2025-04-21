@@ -373,6 +373,26 @@ function initSliders() {
 
 					// Инициализация классов при загрузке
 					updateSlideClasses();
+
+					const onWheel = (e) => {
+						if (!sliderSwiper || sliderSwiper.destroyed) return;
+
+						const delta = e.deltaY;
+
+						if ((sliderSwiper.isBeginning && delta < 0) || (sliderSwiper.isEnd && delta > 0)) {
+							// Отключаем управление колесом мыши
+							sliderSwiper.params.mousewheel.enabled = false;
+
+							// Разрешаем обычный скролл страницы
+							sliderSwiper.mousewheel.disable();
+						} else {
+							// Включаем управление колесом мыши
+							sliderSwiper.params.mousewheel.enabled = true;
+							sliderSwiper.mousewheel.enable();
+						}
+					};
+
+					slider.addEventListener('wheel', onWheel);
 				});
 
 			});

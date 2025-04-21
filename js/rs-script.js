@@ -41,42 +41,179 @@ function addLoadedClass() {
 }
 addLoadedClass()
 
+
+/* ====================================
+Позиция sticky
+==================================== */
+function sticky() {
+	let addWindowScrollEvent = false;
+	function stickyBlock() {
+		// data-sticky для родителя внутри которого прилипает блок *
+		// data-sticky-header для родителя, учитываем высоту хедера
+		// data-sticky-top="" для родителя, можно указать отступ сверху
+		// data-sticky-bottom="" для родителя, можно указать отступ снизу
+		// data-sticky-item для прилипающего блока *
+		addWindowScrollEvent = true;
+
+		function stickyBlockInit() {
+			const stickyParents = document.querySelectorAll('[data-sticky]');
+
+			if (stickyParents.length) {
+				stickyParents.forEach(stickyParent => {
+					let stickyConfig = {
+						media: stickyParent.dataset.sticky ? parseInt(stickyParent.dataset.sticky) : null,
+						top: stickyParent.dataset.stickyTop ? parseInt(stickyParent.dataset.stickyTop) : 0,
+						bottom: stickyParent.dataset.stickyBottom ? parseInt(stickyParent.dataset.stickyBottom) : 0,
+						header: stickyParent.hasAttribute('data-sticky-header') ? document.querySelector('header').offsetHeight : 0
+					}
+					stickyBlockItem(stickyParent, stickyConfig);
+				});
+			}
+		}
+		function stickyBlockItem(stickyParent, stickyConfig) {
+			const stickyBlockItem = stickyParent.querySelector('[data-sticky-item]');
+			const headerHeight = stickyConfig.header;
+			const offsetTop = headerHeight + stickyConfig.top;
+			const startPoint = stickyBlockItem.getBoundingClientRect().top + scrollY - offsetTop;
+
+			document.addEventListener("windowScroll", stickyBlockActions);
+			window.addEventListener("resize", stickyBlockActions);
+
+			function stickyBlockActions(e) {
+				const endPoint = (stickyParent.offsetHeight + stickyParent.getBoundingClientRect().top + scrollY) - (offsetTop + stickyBlockItem.offsetHeight + stickyConfig.bottom);
+				let stickyItemValues = {
+					position: "relative",
+					bottom: "auto",
+					top: "0px",
+					left: "0px",
+					width: "auto"
+				}
+				if (!stickyConfig.media || stickyConfig.media < window.innerWidth) {
+					// if (offsetTop + stickyConfig.bottom + stickyBlockItem.offsetHeight < window.innerHeight) {
+					if (offsetTop + stickyConfig.bottom) {
+						if (scrollY >= startPoint && scrollY <= endPoint) {
+							stickyItemValues.position = `fixed`;
+							stickyItemValues.bottom = `auto`;
+							stickyItemValues.top = `${offsetTop}px`;
+							stickyItemValues.left = `${stickyBlockItem.getBoundingClientRect().left}px`; // Учесть разницу в ширине экрана?
+							stickyItemValues.width = `${stickyBlockItem.offsetWidth}px`;
+						} else if (scrollY >= endPoint) {
+							stickyItemValues.position = `absolute`;
+							stickyItemValues.bottom = `${stickyConfig.bottom}px`;
+							stickyItemValues.top = `auto`;
+							stickyItemValues.left = `0px`;
+							stickyItemValues.width = `${stickyBlockItem.offsetWidth}px`;
+						}
+					}
+				}
+				stickyBlockType(stickyBlockItem, stickyItemValues);
+			}
+		}
+		function stickyBlockType(stickyBlockItem, stickyItemValues) {
+			stickyBlockItem.style.cssText = `position:${stickyItemValues.position};bottom:${stickyItemValues.bottom};top:${stickyItemValues.top};left:${stickyItemValues.left};width:${stickyItemValues.width};`;
+		}
+		stickyBlockInit();
+	}
+	stickyBlock()
+
+	// При подключении модуля обработчик события запустится автоматически
+	setTimeout(() => {
+		if (addWindowScrollEvent) {
+			let windowScroll = new Event("windowScroll");
+			window.addEventListener("scroll", function (e) {
+				document.dispatchEvent(windowScroll);
+			});
+		}
+	}, 0);
+}
+function checkSticky() {
+	if (document.querySelector('[data-sticky]') && (window.innerWidth > 767.98)) {
+		sticky()
+	}
+}
+window.addEventListener('load', checkSticky)
+window.addEventListener('resize', checkSticky)
+
 function shuffleText() {
 	const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+	const activeIntervals = new Map();
 
-	function shuffleTextEffect(span, originalText) {
-		console.log('Запуск анимации для:', span.textContent);
-		let iterations = 0;
-		const shuffleInterval = setInterval(() => {
-			span.textContent = span.textContent
+	// Этап 1: "зашумление"
+	function shufflePerLetter(span, originalText, callback) {
+		let currentIndex = 0;
+
+		const interval = setInterval(() => {
+			const updated = originalText
 				.split('')
 				.map((char, index) => {
-					if (index < iterations) {
-						return originalText[index];
+					if (index <= currentIndex) {
+						return characters[Math.floor(Math.random() * characters.length)];
 					}
-					return characters[Math.floor(Math.random() * characters.length)];
+					return originalText[index];
 				})
 				.join('');
 
-			iterations += 1 / 0.5;
+			span.textContent = updated;
+			currentIndex++;
 
-			if (iterations >= originalText.length) {
-				clearInterval(shuffleInterval);
-				span.textContent = originalText;
+			if (currentIndex >= originalText.length) {
+				clearInterval(interval);
+				setTimeout(() => {
+					callback();
+				}, 1000); // пауза перед восстановлением
 			}
 		}, 50);
 	}
 
-	function handleIntersection(entries, observer) {
+	// Этап 2: восстановление текста посимвольно
+	function restorePerLetter(span, originalText) {
+		let currentIndex = 0;
+		let scrambled = span.textContent.split('');
+
+		const interval = setInterval(() => {
+			scrambled[currentIndex] = originalText[currentIndex];
+			span.textContent = scrambled.join('');
+			currentIndex++;
+
+			if (currentIndex >= originalText.length) {
+				clearInterval(interval);
+			}
+		}, 50);
+	}
+
+	function startLoop(span, originalText) {
+		function runCycle() {
+			span.textContent = originalText;
+
+			setTimeout(() => {
+				shufflePerLetter(span, originalText, () => {
+					restorePerLetter(span, originalText);
+				});
+			}, 1000); // 1 секунда показа оригинала
+		}
+
+		runCycle();
+		const loop = setInterval(runCycle, 5000); // 1 + 1 + 1 + 2
+		return loop;
+	}
+
+	function handleIntersection(entries) {
 		entries.forEach(entry => {
+			const span = entry.target.querySelector('span');
+			if (!span) return;
+
+			const originalText = span.getAttribute('data-shuffle-text');
+
 			if (entry.isIntersecting) {
-				console.log('Элемент в зоне видимости:', entry.target);
-				const span = entry.target.querySelector('span');
-				if (span && !span.dataset.animated) {
-					const originalText = span.getAttribute('data-shuffle-text');
-					shuffleTextEffect(span, originalText);
-					span.dataset.animated = "true";
-					observer.unobserve(entry.target); // Отключаем наблюдение
+				if (!activeIntervals.has(span)) {
+					const loop = startLoop(span, originalText);
+					activeIntervals.set(span, loop);
+				}
+			} else {
+				if (activeIntervals.has(span)) {
+					clearInterval(activeIntervals.get(span));
+					activeIntervals.delete(span);
+					span.textContent = originalText;
 				}
 			}
 		});
@@ -84,16 +221,16 @@ function shuffleText() {
 
 	const observer = new IntersectionObserver(handleIntersection, {
 		root: null,
-		threshold: 0.2, // Уменьшаем, чтобы срабатывало раньше
+		threshold: 0.1,
 	});
 
 	document.querySelectorAll('.shuffle-text li').forEach(item => {
 		const itemText = item.textContent.trim();
 		item.innerHTML = `<span data-shuffle-text="${itemText}">${itemText}</span>`;
 		observer.observe(item);
-		console.log('Добавлен элемент в отслеживание:', item);
 	});
 }
+
 document.addEventListener('DOMContentLoaded', shuffleText);
 
 /* ====================================

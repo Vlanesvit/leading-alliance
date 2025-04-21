@@ -56,7 +56,6 @@
   color: #c0c0c7;
   bottom: 0;
   left: 0;
-  max-width: 259px;
 }
 .rs-product-slider__container {
   height: 100%;
@@ -89,6 +88,7 @@
   position: static;
   z-index: 10;
   overflow: visible;
+  pointer-events: none;
 }
 .rs-product-slider__swiper {
   counter-reset: products;
@@ -113,6 +113,7 @@
   transition: opacity 0.5s ease 0s, -webkit-transform 0.5s ease 0.5s;
   transition: transform 0.5s ease 0.5s, opacity 0.5s ease 0s;
   transition: transform 0.5s ease 0.5s, opacity 0.5s ease 0s, -webkit-transform 0.5s ease 0.5s;
+  pointer-events: all;
 }
 @media (min-width: 991.98px) {
   .rs-product-slider__slide {
